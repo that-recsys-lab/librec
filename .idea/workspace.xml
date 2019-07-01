@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conf/biased_mf.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/itemfeature/myfeatures.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/membership/membership.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/membership/test_membership" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/rating/rating_1kU_20100_binary.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/rating/test_rating.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/rating/test_rating_1kU_20100_binary.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myData/userfeature/userfeature.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,11 +33,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            <state relative-caret-position="527">
+              <caret line="221" column="57" lean-forward="true" selection-start-line="221" selection-start-column="57" selection-end-line="221" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,6 +130,9 @@
       <list>
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" />
         <option value="$PROJECT_DIR$/conf/biased_mf.properties" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java" />
       </list>
     </option>
   </component>
@@ -265,6 +288,12 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/conf" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -288,12 +317,12 @@
       <option name="presentableId" value="Default" />
       <updated>1561741333291</updated>
       <workItem from="1561741335866" duration="1984000" />
-      <workItem from="1562013950650" duration="3188000" />
+      <workItem from="1562013950650" duration="3711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5172000" />
+    <option name="totallyTimeSpent" value="5695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="0" width="1930" height="1064" extended-state="0" />
@@ -411,8 +440,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="527">
+          <caret line="221" column="57" lean-forward="true" selection-start-line="221" selection-start-column="57" selection-end-line="221" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
