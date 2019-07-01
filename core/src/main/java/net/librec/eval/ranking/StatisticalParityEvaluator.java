@@ -14,6 +14,11 @@ import java.util.Set;
 public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
 
     /**
+     * item feature matrix - indicating an item is associated to certain feature or not
+     */
+    protected SparseMatrix itemFeatureMatrix;
+
+    /**
      * Evaluate on the test set with the the list of recommended items.
      *
      * @param testMatrix
@@ -25,19 +30,12 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
      *         (number of unprotected items / unprotected group size )
      */
 
-    /**
-     * item feature matrix - indicating an item is associated to certain feature or not
-     */
-    protected SparseMatrix itemFeatureMatrix;
+    public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) {
 
-    public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) throws IOException {
-        // construct protected and unprotected item set
-        // String inputFilePath = conf.get("dfs.membership.dir") + "/" + conf.get("data.input.path") + "/" + "/membership.csv";
-        String inputFilePath = conf.get("dfs.data.dir") + "/" + conf.get("dfs.membership.dir");
-        System.out.print(inputFilePath);
-        // MembershipUtil membershipUtil = new MembershipUtil(inputFilePath, true);
-        itemFeatureMatrix = ((ItemFeatureAppender) getDataModel().getDataAppender()).getUserAppender();
-
+        /**
+         * construct protected and unprotected item set
+         */
+        itemFeatureMatrix = ((ItemFeatureAppender) getDataModel().getDataAppender()).getItemFeatureMatrix();
 
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
@@ -54,12 +52,14 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                 // calculate rate
                 int topK = this.topN <= recommendListByUser.size() ? this.topN : recommendListByUser.size();
                 for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
-                    // totalRecommendation++;
                     int itemID = recommendListByUser.get(indexOfItem).getKey();
-                    if (!membershipUtil.protectedSet.contains(itemMapping.inverse().get(itemID))){
-                        unprotectedNum++;
-                    } else {
-                        protectedNum++;
+                    if (itemFeatureMatrix.getColumnsSet(itemID).size() > 0) {
+                        if (itemFeatureMatrix.get(itemID,0) > 0) {
+                            unprotectedNum++;
+                        }
+                        else {
+                            protectedNum++;
+                        }
                     }
                 }
 
