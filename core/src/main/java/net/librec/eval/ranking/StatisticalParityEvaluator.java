@@ -25,6 +25,9 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
      *         (number of unprotected items / unprotected group size )
      */
 
+    /**
+     * item feature matrix - indicating an item is associated to certain feature or not
+     */
     protected SparseMatrix itemFeatureMatrix;
 
     public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) throws IOException {
