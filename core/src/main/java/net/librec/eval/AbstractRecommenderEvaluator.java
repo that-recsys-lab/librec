@@ -18,6 +18,7 @@
 package net.librec.eval;
 
 import net.librec.conf.Configuration;
+import net.librec.data.DataModel;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.math.structure.SymmMatrix;
 import net.librec.recommender.RecommenderContext;
@@ -33,6 +34,10 @@ import java.util.Map;
  */
 public abstract class AbstractRecommenderEvaluator implements RecommenderEvaluator {
 
+    /**
+     * data model for evaluator to use
+     */
+    protected DataModel dataModel;
     /**
      * the number of  recommended items
      */
@@ -97,5 +102,14 @@ public abstract class AbstractRecommenderEvaluator implements RecommenderEvaluat
     public Configuration getConf() {
         return conf;
     }
+
+    /**
+     * Set the data model
+     *
+     * @param dataModel
+     */
+    public void setDataModel(DataModel dataModel) {this.dataModel = dataModel;}
+
+    public DataModel getDataModel() {return dataModel;}
 
 }
