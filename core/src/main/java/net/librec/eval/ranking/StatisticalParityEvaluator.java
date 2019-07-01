@@ -1,16 +1,13 @@
 package net.librec.eval.ranking;
 
 import com.google.common.collect.BiMap;
-import net.librec.data.DataModel;
 import net.librec.eval.AbstractRecommenderEvaluator;
-import net.librec.math.algorithm.Maths;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
-import net.librec.util.MembershipUtil;
+import net.librec.data.convertor.appender.ItemFeatureAppender;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -32,7 +29,8 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         // String inputFilePath = conf.get("dfs.membership.dir") + "/" + conf.get("data.input.path") + "/" + "/membership.csv";
         String inputFilePath = conf.get("dfs.data.dir") + "/" + conf.get("dfs.membership.dir");
         System.out.print(inputFilePath);
-        MembershipUtil membershipUtil = new MembershipUtil(inputFilePath, true);
+        // MembershipUtil membershipUtil = new MembershipUtil(inputFilePath, true);
+        itemFeatureMatrix = ((ItemFeatureAppender) getDataModel().getDataAppender()).getUserAppender();
 
 
         double totalProtected = 0.0;
