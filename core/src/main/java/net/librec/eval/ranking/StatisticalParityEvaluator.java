@@ -2,10 +2,10 @@ package net.librec.eval.ranking;
 
 import com.google.common.collect.BiMap;
 import net.librec.eval.AbstractRecommenderEvaluator;
+import net.librec.data.convertor.appender.ItemFeatureAppender;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
-import net.librec.data.convertor.appender.ItemFeatureAppender;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +24,9 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
      *         (number of protected items / protected group size) /
      *         (number of unprotected items / unprotected group size )
      */
+
+    protected SparseMatrix itemFeatureMatrix;
+
     public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) throws IOException {
         // construct protected and unprotected item set
         // String inputFilePath = conf.get("dfs.membership.dir") + "/" + conf.get("data.input.path") + "/" + "/membership.csv";
