@@ -42,6 +42,24 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         int numUsers = testMatrix.numRows();
         BiMap<String, Integer> itemMapping = getDataModel().getItemMappingData();
 
+        /**
+         * TODO: count number of protected and unprotected items in data set
+         */
+        int numItems = itemFeatureMatrix.numRows();
+        int protectedSize = 0;
+        int unprotectedSize = 0;
+        for (int item = 0; item < numItems; item++) {
+            if (itemFeatureMatrix.getColumnsSet(item).size() > 0) {
+                if (itemFeatureMatrix.get(item,0) > 0) {
+                    unprotectedSize++;
+                }
+                else {
+                    protectedSize++;
+                }
+            }
+        }
+
+
         for (int userID = 0; userID < numUsers; userID++) {
             Set<Integer> testSetByUser = testMatrix.getColumnsSet(userID);
             if (testSetByUser.size() > 0) {
@@ -70,8 +88,8 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
 
         // (number of protected items / protected group size) /
         // (number of unprotected items / unprotected group size )
-        double protectedRatio =  (totalProtected / membershipUtil.protectedSet.size());
-        double unprotectedRatio = (totalUnprotected / membershipUtil.unprotectedSet.size());
+        double protectedRatio =  (totalProtected / protectedSize);
+        double unprotectedRatio = (totalUnprotected / unprotectedSize);
         double relativeChance = protectedRatio / unprotectedRatio;
         System.out.println(relativeChance);
         return relativeChance;
