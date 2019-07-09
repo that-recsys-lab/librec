@@ -1,13 +1,13 @@
 package net.librec.eval.ranking;
 
 import com.google.common.collect.BiMap;
-import net.librec.eval.AbstractRecommenderEvaluator;
+import net.librec.data.DataModel;
 import net.librec.data.convertor.appender.ItemFeatureAppender;
+import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -18,6 +18,10 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
      */
     protected SparseMatrix itemFeatureMatrix;
 
+    public void setDataModel(DataModel datamodel) {
+        super.setDataModel(datamodel);
+
+    }
     /**
      * Evaluate on the test set with the the list of recommended items.
      *
@@ -54,7 +58,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                     unprotectedSize++;
                 }
                 else {
-                    protectedSize++;
+                   protectedSize++;
                 }
             }
         }
