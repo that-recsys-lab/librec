@@ -74,6 +74,11 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
     public DataAppender dataAppender;
 
     /**
+     * Data Splitter {@link FeatureAppender}
+     */
+    public FeatureAppender featureAppender;
+
+    /**
      * Build Convert.
      *
      * @throws LibrecException if error occurs when building convert.
@@ -111,6 +116,7 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
         String feature = conf.get("data.appender.class");
         if (StringUtils.isNotBlank(feature)) {
             try {
+                featureAppender = (FeatureAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(feature), conf);
                 dataAppender = (DataAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(feature), conf);
                 dataAppender.setUserMappingData(getUserMappingData());
                 dataAppender.setItemMappingData(getItemMappingData());
