@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import net.librec.conf.Configuration;
 import net.librec.conf.Configured;
 import net.librec.data.DataAppender;
+import net.librec.data.FeatureAppender;
 import net.librec.math.structure.SparseMatrix;
 import org.apache.commons.lang.StringUtils;
 

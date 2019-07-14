@@ -242,6 +242,14 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
     }
 
     /**
+     * Get feature appender
+     *
+     * @return the feature appender of data model
+     */
+    @Override
+    public FeatureAppender getFeatureAppender() { return featureAppender; }
+
+    /**
      * Get data context.
      *
      * @return the context see {@link net.librec.data.DataContext}.
