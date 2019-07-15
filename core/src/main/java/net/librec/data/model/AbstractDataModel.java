@@ -25,6 +25,7 @@ import net.librec.math.structure.DataFrame;
 import net.librec.math.structure.DataSet;
 import net.librec.util.DriverClassUtil;
 import net.librec.util.ReflectionUtil;
+import net.librec.util.StringUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -74,7 +75,7 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
     public DataAppender dataAppender;
 
     /**
-     * Data Splitter {@link FeatureAppender}
+     * Data Appender {@link FeatureAppender}
      */
     public FeatureAppender featureAppender;
 
@@ -113,11 +114,11 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
      * @throws LibrecException if error occurs when building appender.
      */
     protected void buildFeature() throws LibrecException {
-        String feature = conf.get("data.appender.class");
-        if (StringUtils.isNotBlank(feature)) {
+        String dataAppenderClass = conf.get("data.appender.class");
+        String featureAppenderClass = conf.get("feature.appender.class");
+        if (StringUtils.isNotBlank(dataAppenderClass)) {
             try {
-                featureAppender = (FeatureAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(feature), conf);
-                dataAppender = (DataAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(feature), conf);
+                dataAppender = (DataAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(dataAppenderClass), conf);
                 dataAppender.setUserMappingData(getUserMappingData());
                 dataAppender.setItemMappingData(getItemMappingData());
                 dataAppender.processData();
@@ -127,6 +128,19 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
                 throw new LibrecException(e);
             }
         }
+
+        if (StringUtils.isNotBlank(featureAppenderClass)) {
+            try {
+                featureAppender = (FeatureAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(featureAppenderClass), conf);
+                featureAppender.setUserFeatureMap(getUserMappingData());
+                featureAppender.setItemFeatureMap(getItemMappingData());
+                featureAppender.processData();
+            } catch (ClassNotFoundException e) {
+                throw new LibrecException(e);
+            } catch (IOException e) {
+                throw new LibrecException(e);
+            }
+         }
     }
 
     /**

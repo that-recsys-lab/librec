@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author RBurke
  */
-public class UserFeatureAppender extends Configured implements DataAppender {
+public class UserFeatureAppender extends Configured implements FeatureAppender {
 
     protected final Log LOG = LogFactory.getLog(this.getClass());
 
@@ -173,17 +173,19 @@ public class UserFeatureAppender extends Configured implements DataAppender {
      *
      * @return the {@code SparseMatrix} object built by the user feature data.
      */
-    public SparseMatrix getUserFeatureMatrix() {
+    public SparseMatrix getUserFeature() {
         return m_userFeatureMatrix;
     }
 
-    public int getUserFeature(String user, int feature) {
+    public int getUserFeatureId(String user, int feature) {
         return (int) m_userFeatureMatrix.get(m_userIds.get(user), feature);
     }
 
+    /*
     public int getUserFeature(int userid, int feature) {
         return (int) m_userFeatureMatrix.get(userid, feature);
     }
+    */
 
     /**
      * Set user mapping data.
@@ -192,7 +194,7 @@ public class UserFeatureAppender extends Configured implements DataAppender {
      *            user {raw id, inner id} map
      */
     @Override
-    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
+    public void setUserFeatureMap(BiMap<String, Integer> userMappingData) {
         this.m_userIds = userMappingData;
     }
 
@@ -202,7 +204,7 @@ public class UserFeatureAppender extends Configured implements DataAppender {
      * Does nothing because we don't use item mapping data for user features
      */
     @Override
-    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
+    public void setItemFeatureMap(BiMap<String, Integer> itemMappingData) {
 
     }
 }

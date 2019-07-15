@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" afterDir="false" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/core/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,58 +28,137 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java">
+      <file leaf-file-name="Measure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/Measure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="56" column="59" lean-forward="true" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+            <state relative-caret-position="15">
+              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1576969833365" expanded="true" signature="3344:3401" ph="{...}" />
+                <marker date="1576969833365" expanded="true" signature="3407:3502" ph="/**...*/" />
+                <marker date="1576969833365" expanded="true" signature="3561:3868" ph="{...}" />
+                <marker date="1576969833365" expanded="true" signature="3874:3990" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="4059:4070" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="4092:4098" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="4137:7060" ph="{...}" />
+                <marker date="1576969833365" expanded="true" signature="4148:4180" ph="/**...*/" />
+                <marker date="1576969833365" expanded="true" signature="4223:4269" ph="/**...*/" />
+                <marker date="1576969833365" expanded="true" signature="4309:4448" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="4493:4508" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="4531:4541" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="4551:4815" ph="/**...*/" />
+                <marker date="1576969833365" expanded="true" signature="4875:4952" ph="{...}" />
+                <marker date="1576969833365" expanded="true" signature="4962:5149" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="5185:5200" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="5215:5225" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="5235:5383" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="5431:5446" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="5469:5479" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="5489:5641" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="5674:5689" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="5701:5711" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="5721:5880" ph="/**...*/" />
+                <marker date="1576969833365" expanded="false" signature="5922:5937" ph=" { " />
+                <marker date="1576969833365" expanded="false" signature="5954:5964" ph=" }" />
+                <marker date="1576969833365" expanded="true" signature="6095:6357" ph="{...}" />
+                <marker date="1576969833365" expanded="true" signature="6514:7053" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/biased_mf.properties">
+      <file leaf-file-name="DiversityEvaluator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityEvaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/recommender/SocialRecommender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="180">
+              <caret line="29" column="63" lean-forward="false" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2198#2199#0" expanded="true" />
-                <element signature="e#2266#2267#0" expanded="true" />
+                <marker date="1576969833368" expanded="true" signature="3319:3333" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/AveragePrecisionEvaluator.java">
+      <file leaf-file-name="RecommenderJob.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="3000">
+              <caret line="222" column="41" lean-forward="false" selection-start-line="222" selection-start-column="41" selection-end-line="222" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="AbstractRecommenderSimilarity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/similarity/AbstractRecommenderSimilarity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="131" column="49" lean-forward="false" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+              <folding>
+                <marker date="1576969833504" expanded="true" signature="7900:7944" ph="/**...*/" />
+                <marker date="1576969833504" expanded="true" signature="8061:8153" ph="/**...*/" />
+                <marker date="1576969833504" expanded="false" signature="8211:8222" ph=" { " />
+                <marker date="1576969833504" expanded="false" signature="8246:8252" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="110" column="28" lean-forward="false" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
+              <folding>
+                <marker date="1576970630239" expanded="true" signature="1008:1074" ph="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserFeatureAppender.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1576970630237" expanded="true" signature="7648:7656" ph="{}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemFeatureAppender.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1524">
-              <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3231#3237#0" expanded="true" />
+                <element signature="e#3299#3305#0" expanded="true" />
+                <element signature="e#3351#3685#0" expanded="true" />
+                <element signature="e#3684#3685#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeatureAppender.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecommenderEvaluator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,24 +168,50 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityEvaluator.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityByFeaturesEvaluator.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java" />
-        <option value="$PROJECT_DIR$/conf/biased_mf.properties" />
-        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/similarity/AbstractRecommenderSimilarity.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-5" />
     <option name="width" value="1930" />
     <option name="height" value="1064" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="PackagesPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -111,11 +225,6 @@
             <path>
               <item name="librec" type="b2602c69:ProjectViewProjectNode" />
               <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -123,105 +232,6 @@
               <item name="librec" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="convertor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="convertor" type="462c0819:PsiDirectoryNode" />
-              <item name="appender" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-              <item name="ranking" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-              <item name="rating" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="job" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="librec" type="b2602c69:ProjectViewProjectNode" />
@@ -231,55 +241,86 @@
             <path>
               <item name="librec" type="b2602c69:ProjectViewProjectNode" />
               <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="myData" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="librec" type="b2602c69:ProjectViewProjectNode" />
               <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="myData" type="462c0819:PsiDirectoryNode" />
-              <item name="itemfeature" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="myData" type="462c0819:PsiDirectoryNode" />
-              <item name="membership" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="myData" type="462c0819:PsiDirectoryNode" />
-              <item name="rating" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
-              <item name="myData" type="462c0819:PsiDirectoryNode" />
-              <item name="userfeature" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+              <item name="data" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+              <item name="eval" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+              <item name="eval" type="1f31426a:PackageElementNode" />
+              <item name="ranking" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+              <item name="job" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="librec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="librec-core" type="616d4139:PackageViewModuleNode" />
+              <item name="net.librec" type="1f31426a:PackageElementNode" />
+              <item name="similarity" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/core/src/main/java/net/librec/job" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/conf" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.librec.data.convertor.appender" />
+      <recent name="net.librec.data" />
+      <recent name="net.librec.similarity" />
+      <recent name="net.librec.job" />
+      <recent name="net.librec.eval.ranking" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -294,70 +335,333 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="" />
-      <created>1561741333291</created>
+      <changelist id="a33623b1-078e-4d3d-9e64-15383062f595" name="Default" comment="" />
+      <created>1574309046849</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561741333291</updated>
-      <workItem from="1561741335866" duration="1984000" />
-      <workItem from="1562013950650" duration="5921000" />
+      <updated>1574309046849</updated>
+      <workItem from="1574309051137" duration="753000" />
+      <workItem from="1576964502659" duration="1555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7905000" />
+    <option name="totallyTimeSpent" value="8034000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="0" width="1930" height="1064" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21024546" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32908705" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31421646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/librec-default.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/driver.classes.props">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/librec.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/Measure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding>
+            <marker date="1576969833365" expanded="true" signature="3344:3401" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="3407:3502" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="3561:3868" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="3874:3990" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="4059:4070" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="4092:4098" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="4137:7060" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="4148:4180" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4223:4269" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4309:4448" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="4493:4508" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="4531:4541" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="4551:4815" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4875:4952" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="4962:5149" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5185:5200" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5215:5225" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5235:5383" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5431:5446" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5469:5479" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5489:5641" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5674:5689" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5701:5711" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5721:5880" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5922:5937" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5954:5964" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="6095:6357" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="6514:7053" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myData/rating/test_rating.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/driver.classes.props">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/Measure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding>
+            <marker date="1576969833365" expanded="true" signature="3344:3401" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="3407:3502" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="3561:3868" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="3874:3990" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="4059:4070" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="4092:4098" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="4137:7060" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="4148:4180" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4223:4269" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4309:4448" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="4493:4508" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="4531:4541" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="4551:4815" ph="/**...*/" />
+            <marker date="1576969833365" expanded="true" signature="4875:4952" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="4962:5149" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5185:5200" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5215:5225" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5235:5383" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5431:5446" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5469:5479" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5489:5641" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5674:5689" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5701:5711" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="5721:5880" ph="/**...*/" />
+            <marker date="1576969833365" expanded="false" signature="5922:5937" ph=" { " />
+            <marker date="1576969833365" expanded="false" signature="5954:5964" ph=" }" />
+            <marker date="1576969833365" expanded="true" signature="6095:6357" ph="{...}" />
+            <marker date="1576969833365" expanded="true" signature="6514:7053" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="29" column="63" lean-forward="false" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+          <folding>
+            <marker date="1576969833368" expanded="true" signature="3319:3333" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityByFeaturesEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3165">
+          <caret line="253" column="41" lean-forward="false" selection-start-line="253" selection-start-column="41" selection-end-line="253" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/similarity/AbstractRecommenderSimilarity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="131" column="49" lean-forward="false" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+          <folding>
+            <marker date="1576969833504" expanded="true" signature="7900:7944" ph="/**...*/" />
+            <marker date="1576969833504" expanded="true" signature="8061:8153" ph="/**...*/" />
+            <marker date="1576969833504" expanded="false" signature="8211:8222" ph=" { " />
+            <marker date="1576969833504" expanded="false" signature="8246:8252" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/test/java/net/librec/BaseTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="110" column="28" lean-forward="false" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
+          <folding>
+            <marker date="1576970630239" expanded="true" signature="1008:1074" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1576970630237" expanded="true" signature="7648:7656" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3231#3237#0" expanded="true" />
+            <element signature="e#3299#3305#0" expanded="true" />
+            <element signature="e#3351#3685#0" expanded="true" />
+            <element signature="e#3684#3685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/NoveltyEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -369,28 +673,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myData/userfeature/userfeature.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/myData/userfeature/userfeature.csv" />
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/AbstractRecommenderEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,52 +695,48 @@
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/SocialDataAppender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1558">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="221" column="57" lean-forward="true" selection-start-line="221" selection-start-column="57" selection-end-line="221" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="3000">
+          <caret line="222" column="41" lean-forward="false" selection-start-line="222" selection-start-column="41" selection-end-line="222" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/biased_mf.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/recommender/SocialRecommender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2266#2267#0" expanded="true" />
-          </folding>
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/AveragePrecisionEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1524">
-          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3231#3237#0" expanded="true" />
+            <element signature="e#3299#3305#0" expanded="true" />
+            <element signature="e#3351#3685#0" expanded="true" />
+            <element signature="e#3684#3685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -453,8 +746,16 @@
         <state relative-caret-position="408">
           <caret line="56" column="59" lean-forward="true" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
