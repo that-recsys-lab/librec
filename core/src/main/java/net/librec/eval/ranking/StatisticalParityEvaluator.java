@@ -3,6 +3,7 @@ package net.librec.eval.ranking;
 import com.google.common.collect.BiMap;
 import net.librec.data.DataModel;
 import net.librec.data.convertor.appender.ItemFeatureAppender;
+import net.librec.data.convertor.appender.UserFeatureAppender;
 import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
@@ -39,7 +40,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         /**
          * construct protected and unprotected item set
          */
-        itemFeatureMatrix = ((ItemFeatureAppender) getDataModel().getDataAppender()).getItemFeatureMatrix();
+        itemFeatureMatrix = ((UserFeatureAppender) getDataModel().getFeatureAppender()).getUserFeature();
 
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
@@ -47,7 +48,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         BiMap<String, Integer> itemMapping = getDataModel().getItemMappingData();
 
         /**
-         * TODO: count number of protected and unprotected items in data set
+         * count number of protected and unprotected items in data set
          */
         int numItems = itemFeatureMatrix.numRows();
         int protectedSize = 0;

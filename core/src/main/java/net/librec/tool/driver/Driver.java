@@ -14,7 +14,7 @@ import java.util.Properties;
 public class Driver {
 
     // needs to point to the configuration file
-    public static String CONFIG_FILE = "/home/bumshakabum/git/librec/conf/biased_mf.properties";
+    public static String CONFIG_FILE = "/home/bumshakabum/git/recsys-librec/conf/biased_mf.properties";
 
 
     public static void writeFile(String outlog, String mystr) throws IOException {
