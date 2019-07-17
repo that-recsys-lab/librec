@@ -8,6 +8,15 @@ public interface FeatureAppender extends DataModel {
     public int getItemFeatureId();
     public BiMap<String, Integer> getUserFeatureMap();
     public BiMap<String, Integer> getItemFeatureMap();
-    public SparseMatrix getUserFeature();
-    public SparseMatrix getItemFeature();
+
+    /**
+     * @return user x feature values
+     */
+    public SparseMatrix getUserFeatures();
+
+    /**
+     * @return item x feature values
+     */
+    public SparseMatrix getItemFeatures();
+
 }
