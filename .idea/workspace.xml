@@ -19,8 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1510046524">
@@ -139,6 +138,21 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2579">
+              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+              <folding>
+                <element signature="e#6833#6834#0" expanded="true" />
+                <element signature="e#6875#6876#0" expanded="true" />
+                <element signature="e#7379#7380#0" expanded="true" />
+                <element signature="e#7427#7428#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataConvertor.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -177,6 +191,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -192,6 +213,11 @@
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/DiversityByFeaturesEvaluator.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/job/RecommenderJob.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/Measure.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
         <option value="$PROJECT_DIR$/conf/biased_mf.properties" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
@@ -234,8 +260,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
+              <item name="recsys-librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="librec" type="b2602c69:ProjectViewProjectNode" />
@@ -243,8 +269,8 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
+              <item name="recsys-librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -259,8 +285,8 @@
               <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
+              <item name="recsys-librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
@@ -301,8 +327,8 @@
               <item name="eval" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librec" type="462c0819:PsiDirectoryNode" />
+              <item name="recsys-librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
@@ -311,7 +337,12 @@
               <item name="recommender" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recsys-librec" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="librec" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -478,10 +509,10 @@
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" sideWeight="0.5007728" side_tool="true" weight="0.20713525" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32908705" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3284974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32953367" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -502,6 +533,37 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992272" visible="true" weight="0.20713525" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5007728" side_tool="true" weight="0.20713525" />
+      <window_info anchor="bottom" id="Messages" order="0" visible="true" weight="0.32953367" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3284974" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32953367" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -594,10 +656,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/test/java/net/librec/data/convertor/appender/SocialDataAppenderTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/similarity/AbstractRecommenderSimilarity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1501">
+          <caret line="104" column="91" selection-start-line="104" selection-start-column="91" selection-end-line="104" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/util/ReflectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/SocialDataAppender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1558">
           <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/model/ArffDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myData/rating/rating_1kU_20100_binary.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-12-openjdk!/java.base/java/lang/Class.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/util/DriverClassUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/driver.classes.props">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1757" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/recommender/AbstractRecommender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="342" column="25" selection-start-line="342" selection-start-column="25" selection-end-line="342" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/Measure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -609,26 +748,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/biased_mf.properties">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataAppender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/recommender/SocialRecommender.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/model/TextDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2266#2267#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/AveragePrecisionEvaluator.java">
+    <entry file="file://$PROJECT_DIR$/conf/biased_mf.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
@@ -676,6 +813,10 @@
           <caret line="76" selection-start-line="76" selection-end-line="78" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6120#6121#0" expanded="true" />
+            <element signature="e#6162#6163#0" expanded="true" />
+            <element signature="e#7012#7013#0" expanded="true" />
+            <element signature="e#7059#7060#0" expanded="true" />
           </folding>
         </state>
       </provider>
