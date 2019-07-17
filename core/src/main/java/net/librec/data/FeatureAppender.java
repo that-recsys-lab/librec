@@ -43,7 +43,4 @@ public interface FeatureAppender extends DataAppender {
      */
     public SparseMatrix getItemFeatures();
 
-    //public void setUserFeatureMap(BiMap<String, Integer> userMappingData);
-
-    //public void setItemFeatureMap(BiMap<String, Integer> itemMappingData);
 }

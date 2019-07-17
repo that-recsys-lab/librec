@@ -173,19 +173,31 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
      *
      * @return the {@code SparseMatrix} object built by the user feature data.
      */
-    public SparseMatrix getUserFeature() {
+    public SparseMatrix getUserFeatures() {
         return m_userFeatureMatrix;
     }
 
-    public int getUserFeatureId(String user, int feature) {
-        return (int) m_userFeatureMatrix.get(m_userIds.get(user), feature);
+    public SparseMatrix getItemFeatures() {
+        return null;
     }
 
-    /*
-    public int getUserFeature(int userid, int feature) {
-        return (int) m_userFeatureMatrix.get(userid, feature);
+    public int getUserFeatureId(String user) {
+        //return (int) m_userFeatureMatrix.get(m_userIds.get(user), feature);
+        return -1;
     }
-    */
+
+    public int getItemFeatureId(String item) {
+//        return (int) m_userFeatureMatrix.get(userid, feature);
+        return -1;
+    }
+
+    public BiMap<String, Integer> getUserFeatureMap() {
+        return null;
+    }
+
+    public BiMap<String, Integer> getItemFeatureMap() {
+        return null;
+    }
 
     /**
      * Set user mapping data.
@@ -194,7 +206,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
      *            user {raw id, inner id} map
      */
     @Override
-    public void setUserFeatureMap(BiMap<String, Integer> userMappingData) {
+    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
         this.m_userIds = userMappingData;
     }
 
@@ -204,7 +216,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
      * Does nothing because we don't use item mapping data for user features
      */
     @Override
-    public void setItemFeatureMap(BiMap<String, Integer> itemMappingData) {
+    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
 
     }
 }

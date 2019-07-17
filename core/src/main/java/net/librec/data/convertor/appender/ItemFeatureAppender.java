@@ -18,6 +18,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -94,8 +96,6 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         Table<Integer, Integer, Integer> dataTable = HashBasedTable.create();
         // Map {col-id, multiple row-id}: used to fast build a rating matrix
         Multimap<Integer, Integer> colMap = HashMultimap.create();
-        // BiMap {raw id, inner id} outerFeatureIds, innerFeatureIds
-        m_featureIdMap = HashBiMap<String, Integer>();
         final List<File> files = new ArrayList<File>();
         final ArrayList<Long> fileSizeList = new ArrayList<Long>();
 
@@ -132,9 +132,9 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
                     String[] data = line.trim().split("[ \t,]+");
                     String outerItem = data[0];
                     String outerFeature = data[1];
-                    Integer value = (data.length >= 3) ? Integer.valueOf(data[2]) : 1;
+                    int value = (data.length >= 3) ? Integer.valueOf(data[2]) : 1;
 
-                    Integer innerFeature;
+                    int innerFeature;
                     if (m_featureIdMap.containsKey(outerFeature)) {
                         innerFeature = m_featureIdMap.get(outerFeature);
                     } else {
@@ -143,12 +143,13 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
                     }
 
                     if (m_itemIdMap.containsKey(outerItem)) {
-                        Integer row = m_itemIdMap.get(outerItem);
-                        Integer col = Integer.valueOf(innerFeature);
+                        int row = m_itemIdMap.get(outerItem);
+                        int col = Integer.valueOf(innerFeature);
                         dataTable.put(row, col, value);
                         colMap.put(col, row);
                     } else {
-                        LOG.warn("In ItemFeatureAppender, no such item" + outerItem);
+                        Logger logger = Logger.getLogger(ItemFeatureAppender.class.getName());
+                        logger.log(Level.WARNING, "In ItemFeatureAppender, no such item" + outerItem);
                     }
                 }
                 if (!isComplete) {
@@ -178,21 +179,22 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         return m_itemFeatureMatrix;
     }
 
+    public SparseMatrix getUserFeatures() { return null; }
+
     public int getItemFeatureId(String outerFeatureId) {
         return (int) m_featureIdMap.get(outerFeatureId);
     }
 
-    public int getUserFeatureId(int itemid, int feature) {
+    public int getUserFeatureId(String outerFeatureId) {
         return -1;
     }
 
     /**
      * Does nothing. User ids not used for item feature mapping
      */
-//    @Override
-//    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
-//    }
-
+     @Override
+     public void setUserMappingData(BiMap<String, Integer> userMappingData) {
+     }
 
     /**
      * Set item mapping data.
@@ -200,10 +202,16 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
      * @param itemMappingData
      *            item {raw id, inner id} map
      */
-//    @Override
+    @Override
     public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
         this.m_itemIdMap = itemMappingData;
     }
-//
 
+    public BiMap<String, Integer> getUserFeatureMap() {
+        return null;
+    }
+
+    public BiMap<String, Integer> getItemFeatureMap() {
+        return m_featureIdMap;
+    }
 }

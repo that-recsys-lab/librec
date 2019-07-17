@@ -22,6 +22,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         super.setDataModel(datamodel);
 
     }
+
     /**
      * Evaluate on the test set with the the list of recommended items.
      *
@@ -39,12 +40,12 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         /**
          * construct protected and unprotected item set
          */
-        itemFeatureMatrix = ((FeatureAppender) getDataModel().getFeatureAppender()).getItemFeatures();
+        itemFeatureMatrix = getDataModel().getFeatureAppender().getItemFeatures();
 
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
         int numUsers = testMatrix.numRows();
-        BiMap<String, Integer> itemIdMapping = ((FeatureAppender) getDataModel().getFeatureAppender()).getItemFeatureMap();
+        BiMap<String, Integer> itemIdMapping = getDataModel().getFeatureAppender().getItemFeatureMap();
 
         /**
          * count number of protected and unprotected items in data set
