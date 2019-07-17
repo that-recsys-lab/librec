@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/UserFeatureAppender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/tool/driver/Driver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -133,12 +128,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#3231#3237#0" expanded="true" />
-                <element signature="e#3299#3305#0" expanded="true" />
-                <element signature="e#3351#3685#0" expanded="true" />
-                <element signature="e#3684#3685#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,8 +136,8 @@
       <file leaf-file-name="FeatureAppender.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="534">
+              <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -432,12 +422,12 @@
       <option name="presentableId" value="Default" />
       <updated>1574309046849</updated>
       <workItem from="1574309051137" duration="753000" />
-      <workItem from="1576964502659" duration="1555000" />
+      <workItem from="1576964502659" duration="1686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8034000" />
+    <option name="totallyTimeSpent" value="8165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -654,12 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#3231#3237#0" expanded="true" />
-            <element signature="e#3299#3305#0" expanded="true" />
-            <element signature="e#3351#3685#0" expanded="true" />
-            <element signature="e#3684#3685#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -732,12 +717,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#3231#3237#0" expanded="true" />
-            <element signature="e#3299#3305#0" expanded="true" />
-            <element signature="e#3351#3685#0" expanded="true" />
-            <element signature="e#3684#3685#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -753,8 +733,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="534">
+          <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
           <folding />
         </state>
       </provider>

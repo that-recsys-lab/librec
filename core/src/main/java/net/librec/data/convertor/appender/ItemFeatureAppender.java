@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import net.librec.conf.Configuration;
 import net.librec.conf.Configured;
 import net.librec.data.DataAppender;
+import net.librec.data.FeatureAppender;
 import net.librec.math.structure.SparseMatrix;
 import org.apache.commons.lang.StringUtils;
 
@@ -31,7 +32,7 @@ import java.util.Collections;
  *
  * @author RBurke
  */
-public class ItemFeatureAppender extends Configured implements DataAppender {
+public class ItemFeatureAppender extends Configured implements FeatureAppender {
 
     /** The size of the buffer */
     private static final int BSIZE = 1024 * 1024;
@@ -158,23 +159,28 @@ public class ItemFeatureAppender extends Configured implements DataAppender {
      *
      * @return the {@code SparseMatrix} object built by the item feature data.
      */
-    public SparseMatrix getItemFeatureMatrix() {
+    public SparseMatrix getItemFeature() {
         return m_itemFeatureMatrix;
     }
 
-    public int getItemFeature(String item, int feature) {
+    public int getItemFeatureId(String item, int feature) {
         return (int) m_itemFeatureMatrix.get(m_itemIds.get(item), feature);
     }
 
-    public int getItemFeature(int itemid, int feature) {
+    public int getItemFeatureId(int itemid, int feature) {
         return (int) m_itemFeatureMatrix.get(itemid, feature);
     }
 
     /**
      * Does nothing. User ids not used for item feature mapping
      */
+//    @Override
+//    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
+//    }
+
     @Override
-    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
+    public void setUserFeatureMap(BiMap<String, Integer> userFeatureMap) {
+        //this. userFeatureMap;
     }
 
     /**
@@ -183,8 +189,13 @@ public class ItemFeatureAppender extends Configured implements DataAppender {
      * @param itemMappingData
      *            item {raw id, inner id} map
      */
+//    @Override
+//    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
+//        this.m_itemIds = itemMappingData;
+//    }
+//
     @Override
-    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
-        this.m_itemIds = itemMappingData;
+    public void setItemFeatureMap(BiMap<String, Integer> itemFeatureMap) {
+        this.m_itemIds = itemFeatureMap;
     }
 }
