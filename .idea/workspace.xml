@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="">
+    <list default="true" id="ce38400c-a8f6-42cc-838c-98886f1028bf" name="Default Changelist" comment="Created FeatureAppender interface, added featureAppender variable to the AbstractDataModel, and added getFeatureAppender to DataModel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/biased_mf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/biased_mf.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -162,15 +159,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -219,8 +207,6 @@
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/DataModel.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
         <option value="$PROJECT_DIR$/conf/biased_mf.properties" />
-        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/FeatureAppender.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/model/AbstractDataModel.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java" />
       </list>
@@ -293,7 +279,8 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="librec" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="convertor" type="462c0819:PsiDirectoryNode" />
+              <item name="appender" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -629,14 +616,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myData/userfeature/userfeature.csv" />
+    <entry file="file://$PROJECT_DIR$/myData/userfeature/userfeature.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/RecommenderEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,7 +770,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/DataAppender.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
@@ -821,19 +819,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/data/convertor/appender/ItemFeatureAppender.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/net/librec/eval/ranking/StatisticalParityEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
           <caret line="150" column="85" selection-start-line="150" selection-start-column="85" selection-end-line="150" selection-end-column="85" />
           <folding>
-            <element signature="e#6693#6694#0" expanded="true" />
-            <element signature="e#6735#6736#0" expanded="true" />
-            <element signature="e#6901#6902#0" expanded="true" />
-            <element signature="e#6950#6951#0" expanded="true" />
-            <element signature="e#7024#7025#0" expanded="true" />
-            <element signature="e#7048#7049#0" expanded="true" />
-            <element signature="e#7419#7420#0" expanded="true" />
-            <element signature="e#7469#7470#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
