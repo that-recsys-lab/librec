@@ -5,52 +5,45 @@ import net.librec.math.structure.SparseMatrix;
 
 import java.io.IOException;
 
-public interface FeatureAppender extends DataModel {
-
-    /**
-     * Process appender data.
-     *
-     * @throws IOException if I/O error occurs
-     */
-    public void processData() throws IOException;
+public interface FeatureAppender extends DataAppender {
 
     /**
      *
      *
-     * @return user feature id
+     * @return inner user feature id
      */
-    public int getUserFeatureId(String item, int feature);
+    public int getUserFeatureId(String outerUserFeatureId);
 
     /**
-     * @return item feature id
+     * @return inner item feature id
      */
-    public int getItemFeatureId(String item, int feature);
+    public int getItemFeatureId(String outerItemFeatureId);
 
     /**
      * Get item mapping data.
      *
-     * @return  the item {raw id, inner id} map of data model.
+     * @return  the item {raw id, inner id} map of user features.
      */
-//    public BiMap<String, Integer> getUserFeatureMap();
+    public BiMap<String, Integer> getUserFeatureMap();
 
     /**
      * Get item mapping data.
      *
-     * @return  the item {raw id, inner id} map of data model.
+     * @return  the item {raw id, inner id} map of item features.
      */
-//    public BiMap<String, Integer> getItemFeatureMap();
+    public BiMap<String, Integer> getItemFeatureMap();
 
     /**
      * @return user x feature values
      */
-//    public SparseMatrix getUserFeature();
+    public SparseMatrix getUserFeatures();
 
     /**
      * @return item x feature values
      */
-//    public SparseMatrix getItemFeature();
+    public SparseMatrix getItemFeatures();
 
-    public void setUserFeatureMap(BiMap<String, Integer> userMappingData);
+    //public void setUserFeatureMap(BiMap<String, Integer> userMappingData);
 
-    public void setItemFeatureMap(BiMap<String, Integer> itemMappingData);
+    //public void setItemFeatureMap(BiMap<String, Integer> itemMappingData);
 }

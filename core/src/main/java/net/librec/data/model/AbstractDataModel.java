@@ -118,7 +118,6 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
      */
     protected void buildFeature() throws LibrecException {
         String dataAppenderClass = conf.get("data.appender.class");
-        String featureAppenderClass = conf.get("feature.appender.class");
         if (StringUtils.isNotBlank(dataAppenderClass)) {
             try {
                 dataAppender = (DataAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(dataAppenderClass), conf);
@@ -132,11 +131,12 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
             }
         }
 
+        String featureAppenderClass = conf.get("feature.appender.class");
         if (StringUtils.isNotBlank(featureAppenderClass)) {
             try {
                 featureAppender = (FeatureAppender) ReflectionUtil.newInstance(DriverClassUtil.getClass(featureAppenderClass), conf);
-                featureAppender.setUserFeatureMap(getUserMappingData());
-                featureAppender.setItemFeatureMap(getItemMappingData());
+                featureAppender.setUserMappingData(getUserMappingData());
+                featureAppender.setItemMappingData(getItemMappingData());
                 featureAppender.processData();
             } catch (ClassNotFoundException e) {
                 throw new LibrecException(e);
