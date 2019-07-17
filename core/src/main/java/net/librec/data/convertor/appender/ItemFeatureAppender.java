@@ -45,8 +45,11 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
     /** The path of the appender data file */
     protected String m_inputDataPath;
 
-    /** User {raw id, inner id} map from item to feature data */
-    protected BiMap<String, Integer> m_itemIds;
+    /** Feature {raw id, inner id} map from outer to inner ids */
+    protected BiMap<String, Integer> m_featureIdMap;
+
+    /** Item {raw id, inner id} map from outer item to inner ids */
+    protected BiMap<String, Integer> m_itemIdMap;
 
     /**
      * Initializes a newly created {@code ItemFeatureAppender} object with null.
@@ -91,7 +94,8 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         Table<Integer, Integer, Integer> dataTable = HashBasedTable.create();
         // Map {col-id, multiple row-id}: used to fast build a rating matrix
         Multimap<Integer, Integer> colMap = HashMultimap.create();
-        // BiMap {raw id, inner id} userIds, featureIds
+        // BiMap {raw id, inner id} outerFeatureIds, innerFeatureIds
+        m_featureIdMap = HashBiMap<String, Integer>();
         final List<File> files = new ArrayList<File>();
         final ArrayList<Long> fileSizeList = new ArrayList<Long>();
 
@@ -126,14 +130,25 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
                 for (int i = 0; i < loopLength; i++) {
                     String line = new String(bufferData[i]);
                     String[] data = line.trim().split("[ \t,]+");
-                    String item = data[0];
-                    String feature = data[1];
+                    String outerItem = data[0];
+                    String outerFeature = data[1];
                     Integer value = (data.length >= 3) ? Integer.valueOf(data[2]) : 1;
-                    if (m_itemIds.containsKey(item)) {
-                        int row = m_itemIds.get(item);
-                        int col = Integer.valueOf(feature);
+
+                    Integer innerFeature;
+                    if (m_featureIdMap.containsKey(outerFeature)) {
+                        innerFeature = m_featureIdMap.get(outerFeature);
+                    } else {
+                        innerFeature = m_featureIdMap.size();
+                        m_featureIdMap.put(outerFeature, innerFeature);
+                    }
+
+                    if (m_itemIdMap.containsKey(outerItem)) {
+                        Integer row = m_itemIdMap.get(outerItem);
+                        Integer col = Integer.valueOf(innerFeature);
                         dataTable.put(row, col, value);
                         colMap.put(col, row);
+                    } else {
+                        LOG.warn("In ItemFeatureAppender, no such item" + outerItem);
                     }
                 }
                 if (!isComplete) {
@@ -144,7 +159,7 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
             fileRead.close();
             fis.close();
         }
-        int numRows = m_itemIds.size();
+        int numRows = m_itemIdMap.size();
 
         int numCols = Collections.max(dataTable.row(0).keySet()) + 1;
 
@@ -159,16 +174,16 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
      *
      * @return the {@code SparseMatrix} object built by the item feature data.
      */
-    public SparseMatrix getItemFeature() {
+    public SparseMatrix getItemFeatures() {
         return m_itemFeatureMatrix;
     }
 
-    public int getItemFeatureId(String item, int feature) {
-        return (int) m_itemFeatureMatrix.get(m_itemIds.get(item), feature);
+    public int getItemFeatureId(String outerFeatureId) {
+        return (int) m_featureIdMap.get(outerFeatureId);
     }
 
-    public int getItemFeatureId(int itemid, int feature) {
-        return (int) m_itemFeatureMatrix.get(itemid, feature);
+    public int getUserFeatureId(int itemid, int feature) {
+        return -1;
     }
 
     /**
@@ -178,10 +193,6 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
 //    public void setUserMappingData(BiMap<String, Integer> userMappingData) {
 //    }
 
-    @Override
-    public void setUserFeatureMap(BiMap<String, Integer> userFeatureMap) {
-        //this. userFeatureMap;
-    }
 
     /**
      * Set item mapping data.
@@ -190,12 +201,9 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
      *            item {raw id, inner id} map
      */
 //    @Override
-//    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
-//        this.m_itemIds = itemMappingData;
-//    }
-//
-    @Override
-    public void setItemFeatureMap(BiMap<String, Integer> itemFeatureMap) {
-        this.m_itemIds = itemFeatureMap;
+    public void setItemMappingData(BiMap<String, Integer> itemMappingData) {
+        this.m_itemIdMap = itemMappingData;
     }
+//
+
 }
