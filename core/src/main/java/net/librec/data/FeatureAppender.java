@@ -5,7 +5,7 @@ import net.librec.math.structure.SparseMatrix;
 
 import java.io.IOException;
 
-public interface FeatureAppender {
+public interface FeatureAppender extends DataModel {
 
     /**
      * Process appender data.
@@ -24,7 +24,7 @@ public interface FeatureAppender {
     /**
      * @return item feature id
      */
-//    public int getItemFeatureId(String item, int feature);
+    public int getItemFeatureId(String item, int feature);
 
     /**
      * Get item mapping data.
