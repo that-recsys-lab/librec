@@ -113,7 +113,7 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
      *
      * @throws LibrecException if error occurs when building appender.
      */
-    protected void buildFeature() throws LibrecException {
+    protected void buildDataAppender() throws LibrecException {
         String dataAppenderClass = conf.get("data.appender.class");
         if (StringUtils.isNotBlank(dataAppenderClass)) {
             try {
@@ -127,7 +127,8 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
                 throw new LibrecException(e);
             }
         }
-
+    }
+    protected void buildFeatureAppender() throws LibrecException {
         String featureAppenderClass = conf.get("feature.appender.class");
         if (StringUtils.isNotBlank(featureAppenderClass)) {
             try {
@@ -140,7 +141,7 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
             } catch (IOException e) {
                 throw new LibrecException(e);
             }
-         }
+        }
     }
 
     /**
@@ -158,14 +159,19 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
         }
         buildSplitter();
         if (StringUtils.isNotBlank(conf.get("data.appender.class")) && !conf.getBoolean("data.appender.read.ready")) {
-            buildFeature();
-            LOG.info("Transform data to Feature successfully!");
+            buildDataAppender();
+            LOG.info("Data appender loaded successfully!");
             conf.setBoolean("data.appender.read.ready", true);
         }
         LOG.info("Split data to train Set and test Set successfully!");
         if (trainDataSet != null && trainDataSet.size() > 0 && testDataSet != null && testDataSet.size() > 0) {
             LOG.info("Data cardinality of training is " + trainDataSet.size());
             LOG.info("Data cardinality of testing is " + testDataSet.size());
+        }
+        if (StringUtils.isNotBlank(conf.get("feature.appender.class")) && !conf.getBoolean("feature.appender.read.ready")) {
+            buildFeatureAppender();
+            LOG.info("Feature appender loaded successfully!");
+            conf.setBoolean("feature.appender.read.ready", true);
         }
     }
 

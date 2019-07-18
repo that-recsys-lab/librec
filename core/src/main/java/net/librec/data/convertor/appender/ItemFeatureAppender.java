@@ -1,6 +1,7 @@
 package net.librec.data.convertor.appender;
 
 import com.google.common.collect.*;
+import com.google.common.collect.HashBiMap;
 import net.librec.conf.Configuration;
 import net.librec.conf.Configured;
 import net.librec.data.DataAppender;
@@ -20,6 +21,8 @@ import java.util.List;
 import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static com.google.common.collect.HashBiMap.create;
 
 
 /**
@@ -96,6 +99,8 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         Table<Integer, Integer, Integer> dataTable = HashBasedTable.create();
         // Map {col-id, multiple row-id}: used to fast build a rating matrix
         Multimap<Integer, Integer> colMap = HashMultimap.create();
+        // BiMap {
+        m_featureIdMap = HashBiMap.create();
         final List<File> files = new ArrayList<File>();
         final ArrayList<Long> fileSizeList = new ArrayList<Long>();
 
@@ -162,7 +167,7 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         }
         int numRows = m_itemIdMap.size();
 
-        int numCols = Collections.max(dataTable.row(0).keySet()) + 1;
+        int numCols = m_featureIdMap.size();
 
         // build feature matrix
         m_itemFeatureMatrix = new SparseMatrix(numRows, numCols, dataTable, colMap);
