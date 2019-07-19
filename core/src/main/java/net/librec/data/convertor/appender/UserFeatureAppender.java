@@ -49,8 +49,11 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
     /** The path of the appender data file */
     protected String m_inputDataPath;
 
-    /** User {raw id, inner id} map from user to feature data */
-    protected BiMap<String, Integer> m_userIds;
+    /** Feature {raw id, inner id} map from outer to inner id */
+    protected BiMap<String, Integer> m_featureIdMap;
+
+    /** User {raw id, inner id} map from outer to inner id */
+    protected BiMap<String, Integer> m_userIdMap;
 
     /**
      * Initializes a newly created {@code UserFeatureAppender} object with null configuration.
@@ -95,7 +98,8 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
         Table<Integer, Integer, Integer> dataTable = HashBasedTable.create();
         // Map {col-id, multiple row-id}: used to fast build a rating matrix
         Multimap<Integer, Integer> colMap = HashMultimap.create();
-        // BiMap {raw id, inner id} userIds, featureIds
+        // BiMap outer to inner featureIds
+        m_featureIdMap = HashBiMap.create();
         final List<File> files = new ArrayList<File>();
         final ArrayList<Long> fileSizeList = new ArrayList<Long>();
 
@@ -132,21 +136,26 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
                     // Allow comments
                     if (line.charAt(0) != '#') {
                         String[] data = line.trim().split("[ \t,]+");
-                        String user = data[0];
-                        String feature = data[1];
-                        Integer value = (data.length >= 3) ? Integer.valueOf(data[2]) : 1;
-                        if (m_userIds.containsKey(user)) {
-                            int row = m_userIds.get(user);
-                            int col = Integer.valueOf(feature);
-                            if (col >= 0)
-                                dataTable.put(row, col, value);
-                            else {
-                                LOG.info("Illegal user feature value: " + col + " Skipping.");
-                            }
-                            if (col!=0) {
-                                LOG.info("Found a col 1: " + row + " Cool.");
-                            }
+                        String outerUser = data[0];
+                        String outerFeature = data[1];
+                        int value = (data.length >= 3) ? Integer.valueOf(data[2]) : 1;
+
+                        // build featureMap
+                        int innerFeature;
+                        if (m_featureIdMap.containsKey(outerFeature)) {
+                            innerFeature = m_featureIdMap.get(outerFeature);
+                        } else {
+                            innerFeature = m_featureIdMap.size();
+                            m_featureIdMap.put(outerFeature, innerFeature);
+                        }
+
+                        if (m_userIdMap.containsKey(outerUser)) {
+                            int row = m_userIdMap.get(outerUser);
+                            int col = Integer.valueOf(innerFeature);
+                            dataTable.put(row, col, value);
                             colMap.put(col, row);
+                        } else {
+                            LOG.info("In ItemFeatureAppender, no such item" + outerUser);
                         }
                     }
                 }
@@ -158,7 +167,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
             fileRead.close();
             fis.close();
         }
-        int numRows = m_userIds.size();
+        int numRows = m_userIdMap.size();
 
         int numCols = Collections.max(dataTable.columnMap().keySet()) + 1;
 
@@ -207,7 +216,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
      */
     @Override
     public void setUserMappingData(BiMap<String, Integer> userMappingData) {
-        this.m_userIds = userMappingData;
+        this.m_userIdMap = userMappingData;
     }
 
     /**

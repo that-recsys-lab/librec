@@ -8,6 +8,8 @@ import net.librec.data.DataAppender;
 import net.librec.data.FeatureAppender;
 import net.librec.math.structure.SparseMatrix;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +43,12 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
 
     /** The size of the buffer */
     private static final int BSIZE = 1024 * 1024;
+
+    /**
+     * LOG
+     */
+    protected final Log LOG = LogFactory.getLog(this.getClass());
+
 
     /** a {@code DenseMatrix} object build by the user feature data
      * Note that we may decide this is better as a sparse matrix
@@ -99,7 +107,7 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
         Table<Integer, Integer, Integer> dataTable = HashBasedTable.create();
         // Map {col-id, multiple row-id}: used to fast build a rating matrix
         Multimap<Integer, Integer> colMap = HashMultimap.create();
-        // BiMap {
+        // BiMap outer to inner feature id
         m_featureIdMap = HashBiMap.create();
         final List<File> files = new ArrayList<File>();
         final ArrayList<Long> fileSizeList = new ArrayList<Long>();
@@ -153,8 +161,7 @@ public class ItemFeatureAppender extends Configured implements FeatureAppender {
                         dataTable.put(row, col, value);
                         colMap.put(col, row);
                     } else {
-                        Logger logger = Logger.getLogger(ItemFeatureAppender.class.getName());
-                        logger.log(Level.WARNING, "In ItemFeatureAppender, no such item" + outerItem);
+                        LOG.info("In ItemFeatureAppender, no such item" + outerItem);
                     }
                 }
                 if (!isComplete) {

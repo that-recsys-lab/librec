@@ -7,11 +7,16 @@ import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.List;
 import java.util.Set;
 
 public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
+
+    /** LOG */
+    protected final Log LOG = LogFactory.getLog(this.getClass());
 
     /**
      * item feature matrix - indicating an item is associated to certain feature or not
@@ -42,24 +47,30 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
          */
         itemFeatureMatrix = getDataModel().getFeatureAppender().getItemFeatures();
 
+        BiMap<String, Integer> featureIdMapping = getDataModel().getFeatureAppender().getItemFeatureMap();
+
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
         int numUsers = testMatrix.numRows();
-        BiMap<String, Integer> itemIdMapping = getDataModel().getFeatureAppender().getItemFeatureMap();
 
-        /**
-         * count number of protected and unprotected items in data set
-         */
         int numItems = itemFeatureMatrix.numRows();
+        int numFeatures = itemFeatureMatrix.numColumns();
+        String outerProtectedId = "protected";
+        String outerUnprotectedId = "unprotected";
         int protectedSize = 0;
         int unprotectedSize = 0;
-        for (int item = 0; item < numItems; item++) {
-            if (itemFeatureMatrix.getColumnsSet(item).size() > 0) {
-                if (itemFeatureMatrix.get(item,0) > 0) {
-                    unprotectedSize++;
-                }
-                else {
-                   protectedSize++;
+
+        // Count number of protected and unprotected items in data set
+        for (int itemId = 0; itemId < numItems; itemId++) {
+            for (int featureId = 0; featureId < numFeatures; featureId ++) {
+                if (itemFeatureMatrix.get(itemId, featureId) == 1) {
+                    if (featureId == featureIdMapping.get(outerProtectedId)) {
+                        protectedSize++;
+                    } else if (featureId == featureIdMapping.get(outerUnprotectedId)) {
+                        unprotectedSize++;
+                    } else {
+                        LOG.info("Found feature without inner/outer mapping");
+                    }
                 }
             }
         }
@@ -77,11 +88,10 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                 for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
                     int itemID = recommendListByUser.get(indexOfItem).getKey();
                     if (itemFeatureMatrix.getColumnsSet(itemID).size() > 0) {
-                        if (itemFeatureMatrix.get(itemID,0) > 0) {
-                            unprotectedNum++;
-                        }
-                        else {
+                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerProtectedId)) == 1) {
                             protectedNum++;
+                        } else if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerUnprotectedId)) == 1) {
+                            unprotectedNum++;
                         }
                     }
                 }
