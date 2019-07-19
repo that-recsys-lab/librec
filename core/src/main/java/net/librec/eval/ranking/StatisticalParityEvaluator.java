@@ -69,7 +69,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                     } else if (featureId == featureIdMapping.get(outerUnprotectedId)) {
                         unprotectedSize++;
                     } else {
-                        LOG.info("Found feature without inner/outer mapping");
+                        LOG.info("StatisticalParityEvaluator: undefined inner feature id mapping");
                     }
                 }
             }
@@ -92,6 +92,8 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                             protectedNum++;
                         } else if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerUnprotectedId)) == 1) {
                             unprotectedNum++;
+                        } else {
+                            LOG.info("StatisticalParityEvaluator: undefined feature id mapping");
                         }
                     }
                 }
