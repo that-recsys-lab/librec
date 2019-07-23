@@ -155,7 +155,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
                             dataTable.put(row, col, value);
                             colMap.put(col, row);
                         } else {
-                            LOG.info("In ItemFeatureAppender, no such item" + outerUser);
+                            LOG.info("In UserFeatureAppender, no such user" + outerUser);
                         }
                     }
                 }
@@ -169,7 +169,7 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
         }
         int numRows = m_userIdMap.size();
 
-        int numCols = Collections.max(dataTable.columnMap().keySet()) + 1;
+        int numCols = m_featureIdMap.size();
 
         // build feature matrix
         m_userFeatureMatrix = new SparseMatrix(numRows, numCols, dataTable, colMap);
@@ -190,18 +190,16 @@ public class UserFeatureAppender extends Configured implements FeatureAppender {
         return null;
     }
 
-    public int getUserFeatureId(String user) {
-        //return (int) m_userFeatureMatrix.get(m_userIds.get(user), feature);
-        return -1;
+    public int getUserFeatureId(String outerFeatureId) {
+        return (int) m_featureIdMap.get(outerFeatureId);
     }
 
-    public int getItemFeatureId(String item) {
-//        return (int) m_userFeatureMatrix.get(userid, feature);
+    public int getItemFeatureId(String outerFeatureId) {
         return -1;
     }
 
     public BiMap<String, Integer> getUserFeatureMap() {
-        return null;
+        return m_featureIdMap;
     }
 
     public BiMap<String, Integer> getItemFeatureMap() {
