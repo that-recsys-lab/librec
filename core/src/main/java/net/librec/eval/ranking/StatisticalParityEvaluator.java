@@ -7,6 +7,7 @@ import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -55,8 +56,10 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
 
         int numItems = itemFeatureMatrix.numRows();
         int numFeatures = itemFeatureMatrix.numColumns();
-        String outerProtectedId = "protected";
-        String outerUnprotectedId = "unprotected";
+        String outerFeatureId = conf.get("data.feature");
+        if (conf != null && StringUtils.isNotBlank(conf.get("data.feature"))) {
+            outerFeatureId = conf.get("data.feature");
+        }
         int protectedSize = 0;
         int unprotectedSize = 0;
 
@@ -64,12 +67,10 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         for (int itemId = 0; itemId < numItems; itemId++) {
             for (int featureId = 0; featureId < numFeatures; featureId ++) {
                 if (itemFeatureMatrix.get(itemId, featureId) == 1) {
-                    if (featureId == featureIdMapping.get(outerProtectedId)) {
+                    if (featureId == featureIdMapping.get(outerFeatureId)) {
                         protectedSize++;
-                    } else if (featureId == featureIdMapping.get(outerUnprotectedId)) {
-                        unprotectedSize++;
                     } else {
-                        LOG.info("StatisticalParityEvaluator: undefined inner feature id mapping");
+                        unprotectedSize++;
                     }
                 }
             }
@@ -88,12 +89,10 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                 for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
                     int itemID = recommendListByUser.get(indexOfItem).getKey();
                     if (itemFeatureMatrix.getColumnsSet(itemID).size() > 0) {
-                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerProtectedId)) == 1) {
+                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerFeatureId)) == 1) {
                             protectedNum++;
-                        } else if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerUnprotectedId)) == 1) {
-                            unprotectedNum++;
                         } else {
-                            LOG.info("StatisticalParityEvaluator: undefined feature id mapping");
+                            unprotectedNum++;
                         }
                     }
                 }
