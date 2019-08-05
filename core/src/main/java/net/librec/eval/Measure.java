@@ -43,6 +43,7 @@ public enum Measure {
     Novelty(NoveltyEvaluator.class),
     Entropy(EntropyEvaluator.class),
     RMSE(RMSEEvaluator.class),
+    SP(StatisticalParityEvaluator.class),
     MSE(MSEEvaluator.class),
     MAE(MAEEvaluator.class),
     MPE(MPEEvaluator.class);
@@ -78,6 +79,7 @@ public enum Measure {
             rankingEnumList.add(new MeasureValue(AP, 10));
             rankingEnumList.add(new MeasureValue(NDCG, 10));
             rankingEnumList.add(new MeasureValue(RR, 10));
+            rankingEnumList.add(new MeasureValue(SPj, 10));
             rankingEnumList.add(new MeasureValue(Novelty, 10));
             rankingEnumList.add(new MeasureValue(Entropy, 10));
         } else {
@@ -87,6 +89,7 @@ public enum Measure {
             rankingEnumList.add(new MeasureValue(AP, topN));
             rankingEnumList.add(new MeasureValue(NDCG, topN));
             rankingEnumList.add(new MeasureValue(RR, topN));
+            rankingEnumList.add(new MeasureValue(SP, topN));
             rankingEnumList.add(new MeasureValue(Novelty, topN));
             rankingEnumList.add(new MeasureValue(Entropy, topN));
         }
