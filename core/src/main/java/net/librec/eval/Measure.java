@@ -79,7 +79,7 @@ public enum Measure {
             rankingEnumList.add(new MeasureValue(AP, 10));
             rankingEnumList.add(new MeasureValue(NDCG, 10));
             rankingEnumList.add(new MeasureValue(RR, 10));
-            rankingEnumList.add(new MeasureValue(SPj, 10));
+            rankingEnumList.add(new MeasureValue(SP, 10));
             rankingEnumList.add(new MeasureValue(Novelty, 10));
             rankingEnumList.add(new MeasureValue(Entropy, 10));
         } else {
