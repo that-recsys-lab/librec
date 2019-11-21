@@ -45,7 +45,10 @@ public enum Measure {
     RMSE(RMSEEvaluator.class),
     MSE(MSEEvaluator.class),
     MAE(MAEEvaluator.class),
-    MPE(MPEEvaluator.class);
+    MPE(MPEEvaluator.class),
+    SP(StatisticalParityEvaluator.class),
+    ILS(DiversityByFeaturesEvaluator.class),
+    ICOV(ItemCoverageEvaluator.class);
 
     private Class<? extends RecommenderEvaluator> evaluatorClass;
 
@@ -80,6 +83,9 @@ public enum Measure {
             rankingEnumList.add(new MeasureValue(RR, 10));
             rankingEnumList.add(new MeasureValue(Novelty, 10));
             rankingEnumList.add(new MeasureValue(Entropy, 10));
+            rankingEnumList.add(new MeasureValue(SP, 10));
+            rankingEnumList.add(new MeasureValue(ILS, 10));
+            rankingEnumList.add(new MeasureValue(ICOV, 10));
         } else {
             rankingEnumList.add(new MeasureValue(PRECISION, topN));
             rankingEnumList.add(new MeasureValue(RECALL, topN));
@@ -89,6 +95,9 @@ public enum Measure {
             rankingEnumList.add(new MeasureValue(RR, topN));
             rankingEnumList.add(new MeasureValue(Novelty, topN));
             rankingEnumList.add(new MeasureValue(Entropy, topN));
+            rankingEnumList.add(new MeasureValue(SP, topN));
+            rankingEnumList.add(new MeasureValue(ILS, topN));
+            rankingEnumList.add(new MeasureValue(ICOV, topN));
         }
         return rankingEnumList;
     }
