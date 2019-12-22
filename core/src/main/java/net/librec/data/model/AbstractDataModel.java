@@ -168,6 +168,11 @@ public abstract class AbstractDataModel extends Configured implements DataModel 
             LOG.info("Data cardinality of training is " + trainDataSet.size());
             LOG.info("Data cardinality of testing is " + testDataSet.size());
         }
+        if (StringUtils.isNotBlank(conf.get("data.appender.class")) && !conf.getBoolean("data.appender.read.ready")) {
+            buildFeature();
+            LOG.info("Transform data to Feature successfully!");
+            conf.setBoolean("data.appender.read.ready", true);
+        }
         if (StringUtils.isNotBlank(conf.get("feature.appender.class")) && !conf.getBoolean("feature.appender.read.ready")) {
             buildFeatureAppender();
             LOG.info("Feature appender loaded successfully!");

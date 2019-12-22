@@ -27,3 +27,6 @@ core/src/log/librec\.log
 core/src/main/java/net/librec/job/test1\.java
 
 data/ml-10M100K/
+
+.idea/workspace.xml
+core/target/
