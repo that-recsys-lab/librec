@@ -115,5 +115,10 @@ mae=net.librec.eval.rating.MAEEvaluator
 mpe=net.librec.eval.rating.MPEEvaluator
 mse=net.librec.eval.rating.MSEEvaluator
 rmse=net.librec.eval.rating.RMSEEvaluator
+sp=net.librec.eval.ranking.StatisticalParityEvaluator
+ils=net.librec.eval.ranking.DiversityByFeaturesEvaluator
+icov=net.librec.eval.ranking.ItemCoverageEvaluator
+dpcf=net.librec.eval.ranking.DiscountedProportionalCFairnessEvaluator
+dppf=net.librec.eval.ranking.DiscountedProportionalPFairnessEvaluator
 #Filter(-filter)
 generic=net.librec.filter.GenericRecommendedFilter
