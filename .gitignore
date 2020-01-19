@@ -1,0 +1,6 @@
+
+.idea/
+*.DS_Store
+
+gui/librec-gui.iml
+spark/librec-spark.iml
