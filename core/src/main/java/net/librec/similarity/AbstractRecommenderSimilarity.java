@@ -59,6 +59,11 @@ public abstract class AbstractRecommenderSimilarity implements RecommenderSimila
         if(StringUtils.isNotBlank(similarityKey)){
             if (StringUtils.equals(similarityKey, "social")) {
                 buildSocialSimilarityMatrix(dataModel);
+            }
+
+            if (StringUtils.contains(similarityKey, "feature")) {
+                buildFeatureSimilarityMatrix(dataModel);
+
             } else {
                 // calculate the similarity between users, or the similarity between
                 // items.
@@ -126,6 +131,57 @@ public abstract class AbstractRecommenderSimilarity implements RecommenderSimila
             }
         }
     }
+
+
+    /**
+     * Build feature similarity matrix with itemFeatureMatrix or userFeatureMatrix
+     * in dataModel.
+     *
+     * @param dataModel
+     *            the input data model
+     *
+     * @author Nasim
+     */
+
+    public void buildFeatureSimilarityMatrix(DataModel dataModel) {
+
+        String similarityKey = conf.get("rec.recommender.similarity.key", "user");
+        boolean isUser = StringUtils.contains(similarityKey, "user");
+
+        SparseMatrix featureMatrix;
+        if (isUser) {
+            //userFeatureMatrix
+            featureMatrix = dataModel.getFeatureAppender().getUserFeatures();
+        } else {
+            //itemFeatureMatrix
+            featureMatrix = dataModel.getFeatureAppender().getItemFeatures();
+        }
+
+        // the number of rows show the number of items or users
+        int numElements = featureMatrix.numRows();
+        int count = numElements;
+
+        similarityMatrix = new SymmMatrix(count);
+
+        for (int i = 0; i < count; i++) {
+            SparseVector thisVector = featureMatrix.row(i);
+            if (thisVector.getCount() == 0) {
+                continue;
+            }
+            for (int j = i + 1; j < count; j++) {
+                SparseVector thatVector = featureMatrix.row(j);
+                if (thatVector.getCount() == 0) {
+                    continue;
+                }
+
+                double sim = getCorrelation(thisVector, thatVector);
+                if (!Double.isNaN(sim) && sim != 0) {
+                    similarityMatrix.set(i, j, sim);
+                }
+            }
+        }
+    }
+
 
     /**
      * Find the common rated items by this user and that user, or the common

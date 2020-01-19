@@ -2,7 +2,6 @@ package net.librec.eval.ranking;
 
 import com.google.common.collect.BiMap;
 import net.librec.data.DataModel;
-import net.librec.data.FeatureAppender;
 import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
 import net.librec.recommender.item.ItemEntry;
@@ -107,7 +106,6 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         double protectedRatio =  (totalProtected / protectedSize);
         double unprotectedRatio = (totalUnprotected / unprotectedSize);
         double relativeChance = protectedRatio / unprotectedRatio;
-        System.out.println(relativeChance);
         return relativeChance;
 
     }
