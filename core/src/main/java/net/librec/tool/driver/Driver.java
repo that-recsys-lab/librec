@@ -14,9 +14,10 @@ import java.util.Properties;
 public class Driver {
 
     // needs to point to the configuration file
-    public static String CONFIG_FILE = "/Users/nasimsonboli/Desktop/Tutorial/librec2.0.0/librec/conf/featureDiversity.properties";
+//    public static String CONFIG_FILE = "/Users/nasimsonboli/Desktop/Tutorial/librec2.0.0/librec/conf/featureDiversity.properties";
 //    public static String CONFIG_FILE = "/Users/nasimsonboli/Desktop/Tutorial/librec2.0.0/librec/conf/dpf.properties";
 //    public static String CONFIG_FILE = "/Users/nasimsonboli/Desktop/Tutorial/librec2.0.0/librec/conf/calibration.properties";
+    public static String CONFIG_FILE = "/Users/nasimsonboli/Desktop/Tutorial/librec2.0.0/librec/conf/bln_item_slim.properties";
 
     public static void writeFile(String outlog, String mystr) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(outlog, true));

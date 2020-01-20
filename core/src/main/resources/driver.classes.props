@@ -51,6 +51,7 @@ plsa=net.librec.recommender.cf.ranking.PLSARecommender
 rankals=net.librec.recommender.cf.ranking.RankALSRecommender
 ranksgd=net.librec.recommender.cf.ranking.RankSGDRecommender
 slim=net.librec.recommender.cf.ranking.SLIMRecommender
+blnslim=net.librec.recommender.cf.ranking.BLNSLIMRecommender
 wbpr=net.librec.recommender.cf.ranking.WBPRRecommender
 wrmf=net.librec.recommender.cf.ranking.WRMFRecommender
 asvdpp=net.librec.recommender.cf.rating.ASVDPlusPlusRecommender
