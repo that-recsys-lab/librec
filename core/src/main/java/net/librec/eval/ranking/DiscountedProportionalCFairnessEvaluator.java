@@ -73,14 +73,11 @@ public class DiscountedProportionalCFairnessEvaluator extends AbstractRecommende
         List<Double> userFeatureDCGs = new ArrayList<>(Collections.nCopies(numFeatures + 1,0.0));
 
         //protected users
-        String outerFeatureId = "";
-        if (conf != null && StringUtils.isNotBlank(conf.get("data.feature"))) {
-            outerFeatureId = conf.get("data.feature");
+        String protectedAttribute = "";
+        if (conf != null && StringUtils.isNotBlank(conf.get("data.protected.feature"))) {
+            protectedAttribute = conf.get("data.protected.feature");
         }
 
-
-        int nonZeroNumUsersPro = 0; //protected users
-        int nonZeroNumUsersUnpro = 0; //unprotected users
 
         for (int userID = 0; userID < numUsers; userID++) {
             Set<Integer> testSetByUser = testMatrix.getColumnsSet(userID);
@@ -96,57 +93,35 @@ public class DiscountedProportionalCFairnessEvaluator extends AbstractRecommende
                     if (!testSetByUser.contains(itemID)) {
                         continue;
                     }
-
                     int rank = indexOfItem + 1;
                     dcg += 1 / Maths.log(rank + 1, 2);
-
                 }
 
 
                 // Does user belongs to the protected group or not
                 for (int featureId = 0; featureId < numFeatures; featureId ++) {
                     if (userFeatureMatrix.get(userID, featureId) == 1) {
-
-                        // Question: Do we need to divide it by the number of users in the pro/unpro group? I think so!
-                        if (featureId == featureIdMapping.get(outerFeatureId)) {
+                        if (featureId == featureIdMapping.get(protectedAttribute)) {
                             userFeatureDCGs.set(featureId, userFeatureDCGs.get(featureId) + dcg);
-                            nonZeroNumUsersPro++;
                         } else {
                             userFeatureDCGs.set(featureId, userFeatureDCGs.get(featureId) + dcg);
-                            nonZeroNumUsersUnpro++;
                         }
                     }
                 }
             }
         }
 
-        // do we need to do this Nasim?
-        for (int featureId = 0; featureId < numFeatures; featureId ++) {
-            if (featureId == featureIdMapping.get(outerFeatureId)) {
-                userFeatureDCGs.set(featureId, userFeatureDCGs.get(featureId)/nonZeroNumUsersPro);
-//                System.out.println(userFeatureDCGs.get(featureId));
-            } else {
-                userFeatureDCGs.set(featureId, userFeatureDCGs.get(featureId)/nonZeroNumUsersUnpro);
-//                System.out.println(userFeatureDCGs.get(featureId));
-            }
-
-        }
 
         double dpf = 0.0;
         for (int featureId = 0; featureId < numFeatures; featureId ++) {
-            String f = featureIdMapping.inverse().get(featureId); // not used! needs to be removed!
+//            String f = featureIdMapping.inverse().get(featureId);
             double fDCG = userFeatureDCGs.get(featureId);
-
             double sumDCG = 0.0;
             for (int fId = 0; fId < numFeatures; fId ++)  {
-                if (fId != featureId) {
-                    sumDCG += userFeatureDCGs.get(fId);
-                }
+                sumDCG += userFeatureDCGs.get(fId);
             }
-
             dpf += Maths.log((fDCG/sumDCG), 2);
         }
-
         return dpf;
     }
 }

@@ -75,10 +75,10 @@ public class DiscountedProportionalPFairnessEvaluator extends AbstractRecommende
         // initialize with zeros.
         List<Double> itemFeatureDCGs = new ArrayList<>(Collections.nCopies(numFeatures + 1,0.0));
 
-        String outerFeatureId = "";
-        if (conf != null && StringUtils.isNotBlank(conf.get("data.feature"))) {
-            outerFeatureId = conf.get("data.feature");
-        }
+//        String protectedAttribute = "";
+//        if (conf != null && StringUtils.isNotBlank(conf.get("data.protected.feature"))) {
+//            protectedAttribute = conf.get("data.protected.feature");
+//        }
 
 
         // we calcualte the dcg for all the items in a specific group that has been gained from all the users.
@@ -101,13 +101,9 @@ public class DiscountedProportionalPFairnessEvaluator extends AbstractRecommende
 
                     // check to see which group our item belongs to
                     for (int featureId = 0; featureId < numFeatures; featureId ++) {
-                        if (itemFeatureMatrix.get(itemID, featureId) == 1) { // why do we check this in the first place?
-                            itemFeatureDCGs.set(featureId, itemFeatureDCGs.get(featureId) + dcg); // is this correct? item id/item index
-//                            if (featureId == featureIdMapping.get(outerFeatureId)) {
-//                                itemFeatureDCGs.set(featureId, itemFeatureDCGs.get(featureId) + dcg);
-//                            } else {
-//                                itemFeatureDCGs.set(featureId, itemFeatureDCGs.get(featureId) + dcg);
-//                            }
+                        if (itemFeatureMatrix.get(itemID, featureId) == 1) {
+                            // itemId or item index? important!
+                            itemFeatureDCGs.set(featureId, itemFeatureDCGs.get(featureId) + dcg); // check to see if this is correct? item id/item index
                         }
                     }
                 }
@@ -125,15 +121,12 @@ public class DiscountedProportionalPFairnessEvaluator extends AbstractRecommende
 
             double sumDCG = 0.0;
             for (int fId = 0; fId < numFeatures; fId ++)  {
-                if (fId != featureId) {
-                    sumDCG += itemFeatureDCGs.get(fId);
-                }
+                sumDCG += itemFeatureDCGs.get(fId);
             }
             dpf += Maths.log((fDCG/sumDCG), 2);
         }
 
         return dpf;
-        // ISSUE: in this way everything will be zero if we have only two groups!! think carefully dude!
-        //question: should I divide it by the number of items in each group for normalization purposes? so they are comparable?!
+        // NOTE: we can also divide it by the number of items belonging to each feature/category.
     }
 }
