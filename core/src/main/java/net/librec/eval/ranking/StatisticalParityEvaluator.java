@@ -23,7 +23,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
      */
     protected SparseMatrix itemFeatureMatrix;
 
-    public void setDataModel(DataModel datamodel) {
+    public void setDataModel(DataModel datamodel) { // do we need this?
         super.setDataModel(datamodel);
 
     }
@@ -46,8 +46,9 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
          * construct protected and unprotected item set
          */
         itemFeatureMatrix = getDataModel().getFeatureAppender().getItemFeatures();
-
         BiMap<String, Integer> featureIdMapping = getDataModel().getFeatureAppender().getItemFeatureMap();
+//        BiMap<String, Integer> itemIdMapping = getDataModel().getFeatureAppender().getItemIdMap();
+        // m_itemIdMap
 
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
@@ -55,9 +56,9 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
 
         int numItems = itemFeatureMatrix.numRows();
         int numFeatures = itemFeatureMatrix.numColumns();
-        String outerFeatureId = conf.get("data.feature");
-        if (conf != null && StringUtils.isNotBlank(conf.get("data.feature"))) {
-            outerFeatureId = conf.get("data.feature");
+        String protectedAttribute = conf.get("data.protected.feature");
+        if (conf != null && StringUtils.isNotBlank(conf.get("data.protected.feature"))) {
+            protectedAttribute = conf.get("data.protected.feature");
         }
         int protectedSize = 0;
         int unprotectedSize = 0;
@@ -66,7 +67,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         for (int itemId = 0; itemId < numItems; itemId++) {
             for (int featureId = 0; featureId < numFeatures; featureId ++) {
                 if (itemFeatureMatrix.get(itemId, featureId) == 1) {
-                    if (featureId == featureIdMapping.get(outerFeatureId)) {
+                    if (featureId == featureIdMapping.get(protectedAttribute)) {
                         protectedSize++;
                     } else {
                         unprotectedSize++;
@@ -87,8 +88,9 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                 int topK = this.topN <= recommendListByUser.size() ? this.topN : recommendListByUser.size();
                 for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
                     int itemID = recommendListByUser.get(indexOfItem).getKey();
+                    // Nasim: needs to be checked, itemID or itemindex
                     if (itemFeatureMatrix.getColumnsSet(itemID).size() > 0) {
-                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(outerFeatureId)) == 1) {
+                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(protectedAttribute)) == 1) {
                             protectedNum++;
                         } else {
                             unprotectedNum++;
@@ -107,6 +109,5 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         double unprotectedRatio = (totalUnprotected / unprotectedSize);
         double relativeChance = protectedRatio / unprotectedRatio;
         return relativeChance;
-
     }
 }

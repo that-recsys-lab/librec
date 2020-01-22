@@ -106,7 +106,7 @@ public class BLNSLIMRecommender extends AbstractRecommender {
         regL1Norm = conf.getFloat("rec.slim.regularization.l1", 1.0f);
         regL2Norm = conf.getFloat("rec.slim.regularization.l2", 1.0f);
         Lambda3 = conf.getFloat("rec.slim.regularization.balance.controller", 1.0f);
-        protectedAttribute = conf.get("data.feature"); // no default value is set here.
+        protectedAttribute = conf.get("data.protected.feature"); // no default value is set here.
 
 
         System.out.println("***");
