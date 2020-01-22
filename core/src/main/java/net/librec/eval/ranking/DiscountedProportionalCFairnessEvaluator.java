@@ -62,7 +62,6 @@ public class DiscountedProportionalCFairnessEvaluator extends AbstractRecommende
 
 
     public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) {
-
         userFeatureMatrix = getDataModel().getFeatureAppender().getUserFeatures();
         BiMap<String, Integer> featureIdMapping = getDataModel().getFeatureAppender().getUserFeatureMap();
 
