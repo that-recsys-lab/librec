@@ -4,3 +4,9 @@
 
 gui/librec-gui.iml
 spark/librec-spark.iml
+.idea/misc.xml
+*.class
+core/target/
+out/production/*
+.idea/modules.xml
+.idea/misc.xml
