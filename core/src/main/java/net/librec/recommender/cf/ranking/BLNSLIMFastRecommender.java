@@ -3,15 +3,10 @@ package net.librec.recommender.cf.ranking;
 import com.google.common.collect.BiMap;
 import net.librec.annotation.ModelData;
 import net.librec.common.LibrecException;
-import net.librec.data.DataModel;
 import net.librec.math.structure.*;
 import net.librec.recommender.AbstractRecommender;
 import net.librec.util.Lists;
-import org.apache.commons.lang.StringUtils;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -24,7 +19,7 @@ import java.util.*;
  */
 
 @ModelData({"isRanking", "slim", "coefficientMatrix", "trainMatrix", "similarityMatrix", "knn"})
-public class BLNSLIMRecommender extends AbstractRecommender {
+public class BLNSLIMFastRecommender extends AbstractRecommender {
     /**
      * the number of iterations
      */
@@ -73,6 +68,11 @@ public class BLNSLIMRecommender extends AbstractRecommender {
     BiMap<String, Integer> featureIdMapping;
 
     /**
+     * balance
+     */
+    private double balance;
+
+    /**
      * regression weights
      */
     private double weights;
@@ -92,6 +92,11 @@ public class BLNSLIMRecommender extends AbstractRecommender {
      */
     private Set<Integer> allItems;
 
+    /**
+     * This parameter sets a threshold for similarity, so we only consider the user pairs that their sim > threshold.
+     */
+    private float minSimThresh;
+
 
     /**
      * initialization
@@ -106,6 +111,7 @@ public class BLNSLIMRecommender extends AbstractRecommender {
         regL1Norm = conf.getFloat("rec.slim.regularization.l1", 1.0f);
         regL2Norm = conf.getFloat("rec.slim.regularization.l2", 1.0f);
         lambda3 = conf.getFloat("rec.bnslim.regularization.l3", 1.0f);
+        minSimThresh = conf.getFloat("rec.bnslim.minsimilarity", -1.0f);
         protectedAttribute = conf.get("data.protected.feature"); // no default value is set here.
 
 
@@ -123,7 +129,7 @@ public class BLNSLIMRecommender extends AbstractRecommender {
 
         for(int itemIdx = 0; itemIdx < this.numItems; ++itemIdx) {
             this.coefficientMatrix.set(itemIdx, itemIdx, 0.0d);
-        } //iterate through all of the items , initialize
+        } //iterate through all of the items, and initialize.
 
         //create the nn matrix
         createItemNNs();
@@ -160,7 +166,6 @@ public class BLNSLIMRecommender extends AbstractRecommender {
     protected void trainModel() throws LibrecException {
         // number of iteration cycles
         for (int iter = 1; iter <= numIterations; iter++) {
-
             loss = 0.0d;
             weights = 0.0d; // weights
 
@@ -181,7 +186,10 @@ public class BLNSLIMRecommender extends AbstractRecommender {
                 // for each nearest neighbor nearestNeighborItemIdx, update coefficient Matrix by the coordinate
                 // descent update rule
                 for (Integer nearestNeighborItemIdx : nearestNeighborCollection) { //user nearest neighbors
-                    if (nearestNeighborItemIdx != itemIdx) {
+
+                    // get the similarity value
+                    double sim = similarityMatrix.get(nearestNeighborItemIdx, itemIdx);
+                    if (nearestNeighborItemIdx != itemIdx && sim > minSimThresh) { // we add this for efficiency purposes.
                         double gradSum = 0.0d, rateSum = 0.0d, errors = 0.0d, itemBalanceSumSqr =0.0d, itemBalanceSum =0.0d;
 
                         //ratings of each item for all the other users
@@ -197,10 +205,13 @@ public class BLNSLIMRecommender extends AbstractRecommender {
                             int nnUserIdx = nnUserVectorEntry.index();
                             double nnRating = nnUserVectorEntry.get();
                             double rating = userRatingEntries[nnUserIdx]; //get the rating of the nn user on the main item
-                            double error = rating - predict(nnUserIdx, itemIdx, nearestNeighborItemIdx);
 
-                            // Calculating Sigma(pk . wik)
-                            double itemBalance = balancePredictor(nnUserIdx, itemIdx, nearestNeighborItemIdx);
+//                            double error = rating - predict(nnUserIdx, itemIdx, nearestNeighborItemIdx);
+//                            double itemBalance = balancePredictor(nnUserIdx, itemIdx, nearestNeighborItemIdx); // Calculating Sigma(pk . wik)
+                            // the below function calcualtes both the predicted rating and the itemBalance at the same time
+                            double error = rating - predictBothRatingAndBalance(nnUserIdx, itemIdx, nearestNeighborItemIdx);
+                            double itemBalance = balance; // balance is calculated in the predictBothRatingAndBalance() and the value is updated.
+
 
                             itemBalanceSumSqr += itemBalance * itemBalance; //item balance squared
                             itemBalanceSum += itemBalance;
@@ -213,9 +224,9 @@ public class BLNSLIMRecommender extends AbstractRecommender {
 
                         itemBalanceSumSqr /= nnCount;
                         itemBalanceSum /= nnCount;
+
                         gradSum /= nnCount;
                         rateSum /= nnCount;
-
                         errors /= nnCount;
 
 
@@ -285,38 +296,47 @@ public class BLNSLIMRecommender extends AbstractRecommender {
         }
         return predictRating;
     }
-//    /**
-
-//     */
 
     /**
-     * calculate the balance for each item according to their membership weight and their coefficient
+     *  calculate the balance for each item according to their membership weight and their coefficient
      *  diag(PW) ^ 2
      *  for all of the nnItems of an item
+     *
+     * In this function we'll try to both calculate the predicted rating for user u and item i, and
+     * also balance term for efficiency purposes.\
      *
      * @param userIdx
      * @param itemIdx
      * @param excludedItemIdx
-     * @return predictBalance
+     * @return
      */
-    protected double balancePredictor(int userIdx, int itemIdx, int excludedItemIdx) {
+    protected double predictBothRatingAndBalance(int userIdx, int itemIdx, int excludedItemIdx) {
 
-        double predictBalance = 0;
+        double predictRating = 0;
+        balance = 0;
+
         Iterator<VectorEntry> itemEntryIterator = trainMatrix.colIterator(userIdx);
 
         while (itemEntryIterator.hasNext()) {
-            //iterate through the nearest neighbors of an item and calculate the prediction accordingly
+            //iterate through the nearest neighbors of a user and calculate the prediction accordingly
             VectorEntry itemEntry = itemEntryIterator.next();
-            int nearestNeighborItemIdx = itemEntry.index(); //nn item index
-
+            int nearestNeighborItemIdx = itemEntry.index(); //nn user index
+            double nearestNeighborPredictRating = itemEntry.get();
 
             if (itemNNs[itemIdx].contains(nearestNeighborItemIdx) && nearestNeighborItemIdx != excludedItemIdx) {
+
+                double coeff = coefficientMatrix.get(nearestNeighborItemIdx, itemIdx);
+                //predictRating += nearestNeighborPredictRating * coefficientMatrix.get(nearestNeighborUserIdx, userIdx);
+                //Calculate the prediction
+                predictRating += nearestNeighborPredictRating * coeff;
+                //calculate the user balance
                 //take p vector, multiply by the coefficients of neighbors (dot product)
-                predictBalance += groupMembershipVector[nearestNeighborItemIdx] * coefficientMatrix.get(nearestNeighborItemIdx, itemIdx);
+                balance += groupMembershipVector[nearestNeighborItemIdx] * coeff;
             }
         }
-        return predictBalance;
+        return predictRating;
     }
+
 
 
     @Override
@@ -350,7 +370,7 @@ public class BLNSLIMRecommender extends AbstractRecommender {
         if (!(null != itemNNs && itemNNs.length > 0)) {
             createItemNNs();
         }
-        return predict(userIdx, itemIdx, -1);
+        return predictBothRatingAndBalance(userIdx, itemIdx, -1);
     }
 
 
