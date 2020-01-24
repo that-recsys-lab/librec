@@ -19,8 +19,10 @@ package net.librec.eval.ranking;
 
 import net.librec.eval.AbstractRecommenderEvaluator;
 import net.librec.math.structure.SparseMatrix;
+import net.librec.recommender.item.ItemEntry;
 import net.librec.recommender.item.RecommendedList;
 import net.librec.recommender.item.UserItemRatingEntry;
+import net.librec.util.Lists;
 
 import java.util.Iterator;
 import java.util.List;
@@ -40,31 +42,30 @@ public class ItemCoverageEvaluator extends AbstractRecommenderEvaluator {
             return 0.0;
         }
 
-        // set up iterator for recommended items list
-        Iterator<UserItemRatingEntry> recommendedEntryIter = recommendedList.entryIterator();
-        recommendedList.userIterator();
-
         // initialize list for unique items in recommended items list
         List<Integer> uniqueItemsRecList = new java.util.ArrayList<Integer>();
         List<Integer> uniqueItemsInTestMatrix = new java.util.ArrayList<Integer>();
 
         int numUsers = testMatrix.numRows();
-        // create a unique list of items from the test matrix
+
         for (int userID = 0; userID < numUsers; userID++) {
-            Set<Integer> testSetByUser = testMatrix.getColumnsSet(userID);
-            for (int itemId: testSetByUser) {
-                if (uniqueItemsInTestMatrix.size() == 0 || !uniqueItemsInTestMatrix.contains(itemId)) {
-                    uniqueItemsInTestMatrix.add(itemId);
+            Set <Integer> testSetByUser = testMatrix.getColumnsSet(userID);
+            if (testSetByUser.size() > 0) {
+
+                for (int itemID: testSetByUser) {
+                    if (!uniqueItemsInTestMatrix.contains(itemID)) {
+                        uniqueItemsInTestMatrix.add(itemID);
+                    }
                 }
-            }
-        }
 
-
-        // iterate through recommended items list, add unique items in testMatrix found
-        while (recommendedEntryIter.hasNext()) {
-            UserItemRatingEntry userItemRatingEntry = recommendedEntryIter.next();
-            if (uniqueItemsRecList.size() == 0 || !uniqueItemsRecList.contains(userItemRatingEntry.getItemIdx())) {
-                uniqueItemsRecList.add(userItemRatingEntry.getItemIdx());
+                List<ItemEntry<Integer, Double>> recommendListByUser = recommendedList.getItemIdxListByUserIdx(userID);
+                int topK = this.topN <= recommendListByUser.size() ? this.topN : recommendListByUser.size();
+                for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
+                    int recommendItemIdx = recommendListByUser.get(indexOfItem).getKey();
+                    if (!uniqueItemsRecList.contains(recommendItemIdx)) {
+                        uniqueItemsRecList.add(recommendItemIdx);
+                    }
+                }
             }
         }
 
