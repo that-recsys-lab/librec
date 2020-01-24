@@ -47,8 +47,7 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
          */
         itemFeatureMatrix = getDataModel().getFeatureAppender().getItemFeatures();
         BiMap<String, Integer> featureIdMapping = getDataModel().getFeatureAppender().getItemFeatureMap();
-//        BiMap<String, Integer> itemIdMapping = getDataModel().getFeatureAppender().getItemIdMap();
-        // m_itemIdMap
+        BiMap<String, Integer> itemIdMapping = getDataModel().getItemMappingData();
 
         double totalProtected = 0.0;
         double totalUnprotected = 0.0;
@@ -60,23 +59,19 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
         if (conf != null && StringUtils.isNotBlank(conf.get("data.protected.feature"))) {
             protectedAttribute = conf.get("data.protected.feature");
         }
-        int protectedSize = 0;
-        int unprotectedSize = 0;
-
-        // Count number of protected and unprotected items in data set
+	    
+        double protectedSize = 0.0;
+        double unprotectedSize = 0.0;
+        int proAttId = featureIdMapping.get(protectedAttribute);
         for (int itemId = 0; itemId < numItems; itemId++) {
-            for (int featureId = 0; featureId < numFeatures; featureId ++) {
-                if (itemFeatureMatrix.get(itemId, featureId) == 1) {
-                    if (featureId == featureIdMapping.get(protectedAttribute)) {
-                        protectedSize++;
-                    } else {
-                        unprotectedSize++;
-                    }
-                }
+            if(itemFeatureMatrix.get(itemId,proAttId) == 1) {
+                protectedSize++;
+            } else {
+                unprotectedSize++;
             }
         }
 
-
+        double nonZeroUsers = 0.0;
         for (int userID = 0; userID < numUsers; userID++) {
             Set<Integer> testSetByUser = testMatrix.getColumnsSet(userID);
             if (testSetByUser.size() > 0) {
@@ -88,25 +83,24 @@ public class StatisticalParityEvaluator extends AbstractRecommenderEvaluator {
                 int topK = this.topN <= recommendListByUser.size() ? this.topN : recommendListByUser.size();
                 for (int indexOfItem = 0; indexOfItem < topK; indexOfItem++) {
                     int itemID = recommendListByUser.get(indexOfItem).getKey();
-                    // Nasim: needs to be checked, itemID or itemindex
-                    if (itemFeatureMatrix.getColumnsSet(itemID).size() > 0) {
-                        if (itemFeatureMatrix.get(itemID, featureIdMapping.get(protectedAttribute)) == 1) {
+                        if(itemFeatureMatrix.get(itemID, proAttId) == 1) {
                             protectedNum++;
                         } else {
                             unprotectedNum++;
                         }
-                    }
                 }
-
-                totalProtected += protectedNum;
-                totalUnprotected += unprotectedNum;
+                totalProtected += ((double)protectedNum/topK);
+                totalUnprotected += ((double)unprotectedNum/topK);
+                nonZeroUsers ++;
             }
         }
 
-        // (number of protected items / protected group size) /
-        // (number of unprotected items / unprotected group size )
-        double protectedRatio =  (totalProtected / protectedSize);
-        double unprotectedRatio = (totalUnprotected / unprotectedSize);
+
+        // SP = (# protected items / protected group size) / (# unprotected items / unprotected group size)
+	    
+        double protectedRatio =  (totalProtected / nonZeroUsers / protectedSize);
+        double unprotectedRatio = (totalUnprotected / nonZeroUsers / unprotectedSize);
+
         double relativeChance = protectedRatio / unprotectedRatio;
         return relativeChance;
     }
