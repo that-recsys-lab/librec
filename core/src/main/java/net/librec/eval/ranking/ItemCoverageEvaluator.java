@@ -38,23 +38,29 @@ public class ItemCoverageEvaluator extends AbstractRecommenderEvaluator {
 
     public double evaluate(SparseMatrix testMatrix, RecommendedList recommendedList) {
 
+        SparseMatrix trainMatrix = dataModel.getDataSplitter().getTrainData();
+
         if (testMatrix == null) {
             return 0.0;
         }
 
         // initialize list for unique items in recommended items list
         List<Integer> uniqueItemsRecList = new java.util.ArrayList<Integer>();
-        List<Integer> uniqueItemsInTestMatrix = new java.util.ArrayList<Integer>();
+        List<Integer> uniqueItemsInTestTrainMatrix = new java.util.ArrayList<Integer>();
 
         int numUsers = testMatrix.numRows();
 
         for (int userID = 0; userID < numUsers; userID++) {
-            Set <Integer> testSetByUser = testMatrix.getColumnsSet(userID);
+            Set <Integer> testSetByUser = testMatrix.getColumnsSet(userID); //items from test
+            Set <Integer> itemSetByUser = trainMatrix.getColumnsSet(userID); // items from train
+            itemSetByUser.addAll(testSetByUser); // all items
+
+
             if (testSetByUser.size() > 0) {
 
-                for (int itemID: testSetByUser) {
-                    if (!uniqueItemsInTestMatrix.contains(itemID)) {
-                        uniqueItemsInTestMatrix.add(itemID);
+                for (int itemID: itemSetByUser) {
+                    if (!uniqueItemsInTestTrainMatrix.contains(itemID)) {
+                        uniqueItemsInTestTrainMatrix.add(itemID);
                     }
                 }
 
@@ -68,8 +74,7 @@ public class ItemCoverageEvaluator extends AbstractRecommenderEvaluator {
                 }
             }
         }
-
         // return ratio of unique items in recommended list to number of unique items in testMatrix
-        return uniqueItemsInTestMatrix.size() > 0 ? uniqueItemsRecList.size() * 1.0 / uniqueItemsInTestMatrix.size() : 0.0d;
+        return uniqueItemsInTestTrainMatrix.size() > 0 ? uniqueItemsRecList.size() * 1.0 / uniqueItemsInTestTrainMatrix.size() : 0.0d;
     }
 }
